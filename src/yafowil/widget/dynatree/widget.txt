@@ -1,0 +1,56 @@
+Import requirements
+::
+
+    >>> import yafowil.loader
+    >>> import yafowil.widget.dynatree
+    >>> from yafowil.base import factory
+
+Render plain widget, source is string.
+::
+    >>> widget = factory('dynatree', name='root', 
+    ...                  props={'source': 'http://www.foo.bar/baz'})
+    >>> print prettyxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="text"/>
+      <div class="dynatree-source hiddenStructure">http://www.foo.bar/baz</div>
+      <div class="dynatree-params hiddenStructure">delay,300|minLength,1|type,remote</div>
+    </div>
+    <BLANKLINE>
+        
+Render plain widget, source is list.
+::
+    >>> widget = factory('dynatree', name='root', 
+    ...                  props={'source': ['foo', 'bar']})
+    >>> print prettyxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="text"/>
+      <div class="dynatree-source hiddenStructure">foo|bar</div>
+      <div class="dynatree-params hiddenStructure">delay,300|minLength,1|type,local</div>
+    </div>
+    <BLANKLINE>
+
+Render plain widget, source is callable.
+::
+
+    >>> def test_source(widget, data):
+    ...     return 'http://from.callable/'
+    >>> widget = factory('dynatree', name='root', 
+    ...                  props={'source': test_source})
+    >>> print prettyxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="text"/>
+      <div class="dynatree-source hiddenStructure">http://from.callable/</div>
+      <div class="dynatree-params hiddenStructure">delay,300|minLength,1|type,remote</div>
+    </div>
+    <BLANKLINE>
+
+Render widget, invalid source type.
+::
+    >>> widget = factory('dynatree', name='root', 
+    ...                  props={'source': None})
+    >>> widget()
+    Traceback (most recent call last):
+    ...
+    ValueError: resulting source must be tuple/list or string
+    
+    
