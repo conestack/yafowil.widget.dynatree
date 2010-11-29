@@ -5,21 +5,30 @@ from yafowil.base import (
 from yafowil.common import input_generic_renderer
 from yafowil.utils import tag
 
+def build_inline_dynatree(tree, selected):
+    if tree is None: return ''
+    li = ''
+    for key in tree:
+        title, subtree = tree[key]
+        li += tag('li', title, '\n', build_inline_dynatree(subtree, selected),
+                  **{'id': key})
+    return tag('ul', li)
+
 def dynatree_renderer(widget, data):
     data.attrs['input_field_type'] = 'text'
     result = input_generic_renderer(widget, data)
     source = widget.attrs['source']
     if callable(source):
         source = source(widget, data)
-    if isinstance(source, (list, tuple)):
-        source = '|'.join(source)
+    if isinstance(source, dict):        
         source_type = 'local'
+        widget.attrs['localtree']
     elif isinstance(source, basestring):
         source_type = 'remote'  
+        result += tag('div', source, 
+                      **{'class': 'dynatree-source hiddenStructure'})
     else:
-        raise ValueError, 'resulting source must be tuple/list or string'  
-    result += tag('div', source, 
-                  **{'class': 'dynatree-source hiddenStructure'})
+        raise ValueError, 'resulting source must be [o]dict or string'
     params = [('%s,%s' % (_, widget.attrs[_])) for _ in ['delay', 'minLength']]
     params.append('type,%s' % source_type)
     result += tag('div', '|'.join(params), 

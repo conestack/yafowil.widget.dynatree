@@ -1,20 +1,46 @@
-=========================================
-jquery.ui.dynatree widget for YAFOWIL
-=========================================
+==================================
+jquery.dynatree widget for YAFOWIL
+==================================
 
-A widget for YAFOWIL providing an dynatree function on a text input.
+A tree-widget for yafowil utilizing the jQuery plugin `jquery.dynatree.js 
+<http://wwwendt.de/tech/dynatree/index.html>`_ (at 
+`google-code <http://code.google.com/p/dynatree/>`_).
+
+Usage
+=====
+
+TODO
 
 Example Application
 ===================
 
-To run the example application run the buildout coming with this package 
-(right beside setup.py) with a python 2.6.
+To run the example application and tests coming with this package run 
+`bootstrap <http://python-distribute.org/bootstrap.py>`_ (Python 2.6 or 2.7) 
+with a buildout like so:: 
 
+    [buildout]
+    parts = gunicorn   
+    
+    [tests]
+    recipe = zc.recipe.testrunner
+    eggs = 
+        yafowil.widget.dynatree[test]
+    
+    [gunicorn]
+    recipe = zc.recipe.egg:scripts
+    eggs = 
+        ${test:eggs}
+        gunicorn 
+    
 Start the application with::
 
-	./bin/gunicorn yafowil.widget.dynatree.example:app
+    ./bin/gunicorn yafowil.widget.dynatree.example:app
 
 and connect with your webbrowser to ``http://localhost:8000/``
+    
+Run the tests with::
+
+    ./bin/tests
 
 
 Contributors

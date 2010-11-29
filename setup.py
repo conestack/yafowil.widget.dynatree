@@ -4,6 +4,8 @@ import sys, os
 version = '1.0'
 shortdesc = 'Autocomplete Widget for YAFOWIL - Yet Another Form Widget Library (Python, Web)'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
+longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
+longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
 tests_require = ['interlude', 'lxml', 'yafowil.webob', 'gunicorn', 'simplejson']
 
 setup(name='yafowil.widget.dynatree',
