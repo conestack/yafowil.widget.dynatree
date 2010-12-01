@@ -25,10 +25,10 @@ A test tree::
 Test inline tree renderer separate::
 
     >>> from yafowil.widget.dynatree.widget import build_inline_dynatree
-    >>> html = build_inline_dynatree(tree, [], ulid='dynatree-source')
+    >>> html = build_inline_dynatree(tree, 'animal', ulid='dynatree-source')
     >>> print html
     <ul class="hiddenStructure" id="dynatree-source">
-    <li id="animal">Animals<ul>
+    <li id="animal" selected="selected">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
     </li><li id="ape">Ape
@@ -98,7 +98,7 @@ Render plain widget, source is tree, preselect ape, single select.
     <li id="animal">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
-    </li><li id="ape">Ape
+    </li><li id="ape" selected="selected">Ape
     </li><li id="elephant">Elephant
     </li></ul>
     </li><li id="bird">Birds<ul>
@@ -126,12 +126,12 @@ Render plain widget, source is tree, preselect ape and swan, multi select.
     <li id="animal">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
-    </li><li id="ape">Ape
+    </li><li id="ape" selected="selected">Ape
     </li><li id="elephant">Elephant
     </li></ul>
     </li><li id="bird">Birds<ul>
     <li id="turkey">Turkey
-    </li><li id="swan">Swan
+    </li><li id="swan" selected="selected">Swan
     </li><li id="hummingbird">Hummingbird
     </li><li id="duck">Duck
     </li></ul>

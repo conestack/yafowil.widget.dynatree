@@ -125,7 +125,7 @@ def app(environ, start_response):
         'label': 'submit',
         'action': 'save',
         'handler': lambda widget, data: None,
-        'next': lambda widget, data: url})
+        'next': lambda request: url})
     controller = Controller(form, Request(environ))
     body = tag('body', h1, controller.rendered)
     response = Response(body=prettyxml(tag('html', head, body)))

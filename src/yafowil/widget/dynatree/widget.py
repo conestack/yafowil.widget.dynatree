@@ -15,13 +15,19 @@ from yafowil.common import (
 
 def build_inline_dynatree(tree, selected, ulid=None):
     if tree is None: return ''
+    if isinstance(selected, basestring):
+        selected = [selected]
+    elif not selected:
+        selected = []
     li = ''
     for key in tree:
         title, subtree = tree[key]
         # TODO: handle all the parameters
+        attrs = {'id': key}
+        if key in selected:
+            attrs['selected'] = 'selected'
         li += tag('li', title, build_inline_dynatree(subtree, selected), 
-                  '\n',
-                  **{'id': key})
+                  '\n', **attrs)
     ul_attrs = dict()
     if ulid is not None:
         ul_attrs['id'] = ulid
