@@ -84,7 +84,64 @@ Render plain widget, source is tree.
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
-    
+
+Render plain widget, source is tree, preselect ape, single select.
+::
+
+    >>> widget = factory('dynatree', name='root', 
+    ...                  value='ape',
+    ...                  props={'source': tree})
+    >>> print prettyxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="hidden" value="ape"/>
+      <ul class="hiddenStructure" id="dynatree-source-root">
+    <li id="animal">Animals<ul>
+    <li id="mammal">Mammals<ul>
+    <li id="horse">Horse
+    </li><li id="ape">Ape
+    </li><li id="elephant">Elephant
+    </li></ul>
+    </li><li id="bird">Birds<ul>
+    <li id="turkey">Turkey
+    </li><li id="swan">Swan
+    </li><li id="hummingbird">Hummingbird
+    </li><li id="duck">Duck
+    </li></ul>
+    </li></ul>
+    </li></ul>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="yafowil-widget-dynatree-tree"/>
+    </div>
+    <BLANKLINE>
+
+Render plain widget, source is tree, preselect ape and swan, multi select.
+::
+    >>> widget = factory('dynatree', name='root', 
+    ...                  value=['ape', 'swan'],
+    ...                  props={'source': tree, 'selectMode': 1})
+    >>> print prettyxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="hidden" value="ape|swan"/>
+      <ul class="hiddenStructure" id="dynatree-source-root">
+    <li id="animal">Animals<ul>
+    <li id="mammal">Mammals<ul>
+    <li id="horse">Horse
+    </li><li id="ape">Ape
+    </li><li id="elephant">Elephant
+    </li></ul>
+    </li><li id="bird">Birds<ul>
+    <li id="turkey">Turkey
+    </li><li id="swan">Swan
+    </li><li id="hummingbird">Hummingbird
+    </li><li id="duck">Duck
+    </li></ul>
+    </li></ul>
+    </li></ul>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="yafowil-widget-dynatree-tree"/>
+    </div>
+    <BLANKLINE>
+        
 Extract from selectMode=1 - means single selection.
 ::
     >>> widget = factory('dynatree', name='root', 

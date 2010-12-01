@@ -5,12 +5,12 @@ from yafowil.base import (
 )
 from yafowil.utils import (
     tag,
-    cssid   
+    cssid,
 )
 from yafowil.common import (
-    input_generic_renderer,
     generic_extractor,
-    generic_required_extractor
+    generic_required_extractor,
+    _value,
 )
 
 def build_inline_dynatree(tree, selected, ulid=None):
@@ -29,8 +29,16 @@ def build_inline_dynatree(tree, selected, ulid=None):
     return tag('ul',  '\n', li, **ul_attrs)
 
 def dynatree_renderer(widget, data):
-    data.attrs['input_field_type'] = 'hidden'
-    result = input_generic_renderer(widget, data)
+    value = _value(widget, data)
+    if isinstance(value, (list, tuple)):
+        value = '|'.join(value)    
+    input_attrs = {
+        'type': 'hidden',
+        'value':  value,
+        'name_': widget.dottedpath,
+        'id': cssid(widget, 'input')    
+    }
+    result = tag('input', **input_attrs)    
     source = widget.attrs['source']
     if callable(source):
         source = source(widget, data)
