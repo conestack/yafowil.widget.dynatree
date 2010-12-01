@@ -21,7 +21,8 @@
             };        
             if (sourcetype=='remote') {
                 params['initAjax'] = {
-        			'url': jqthis.find('.dynatree-source').text()
+        			url: jqthis.find('.dynatree-source').text(),
+        			data: {selected: jqthis.find('input').val()}
         		};
             };
     		// activation/ deactivation
