@@ -54,6 +54,8 @@ def json_response(environ, start_response):
     def dir_tree(base):
         result = []
         for value in os.listdir(base):
+            if value.endswith('pyc') or value.startswith('.'):
+                continue
             new_item = {} #we have to have boolItems
             new_item['key'] = os.path.join(base, value) 
             new_item['title'] = value
@@ -68,7 +70,7 @@ def json_response(environ, start_response):
                                                            selected)
             result.append(new_item)
         return result                                              
-    data = dir_tree('.')
+    data = dir_tree(dir)
     response = Response(content_type='application/json', body=dumps(data))
     return response(environ, start_response)
 

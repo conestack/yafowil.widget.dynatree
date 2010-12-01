@@ -28,7 +28,7 @@ Test inline tree renderer separate::
     >>> html = build_inline_dynatree(tree, 'animal', ulid='dynatree-source')
     >>> print html
     <ul class="hiddenStructure" id="dynatree-source">
-    <li id="animal" selected="selected">Animals<ul>
+    <li class="selected" id="animal">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
     </li><li id="ape">Ape
@@ -98,7 +98,7 @@ Render plain widget, source is tree, preselect ape, single select.
     <li id="animal">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
-    </li><li id="ape" selected="selected">Ape
+    </li><li class="selected" id="ape">Ape
     </li><li id="elephant">Elephant
     </li></ul>
     </li><li id="bird">Birds<ul>
@@ -126,12 +126,12 @@ Render plain widget, source is tree, preselect ape and swan, multi select.
     <li id="animal">Animals<ul>
     <li id="mammal">Mammals<ul>
     <li id="horse">Horse
-    </li><li id="ape" selected="selected">Ape
+    </li><li class="selected" id="ape">Ape
     </li><li id="elephant">Elephant
     </li></ul>
     </li><li id="bird">Birds<ul>
     <li id="turkey">Turkey
-    </li><li id="swan" selected="selected">Swan
+    </li><li class="selected" id="swan">Swan
     </li><li id="hummingbird">Hummingbird
     </li><li id="duck">Duck
     </li></ul>
@@ -161,4 +161,3 @@ Extract from selectMode=2 - means single selection.
     >>> data = widget.extract({'root': 'somevalue|othervalue'})
     >>> data
     <RuntimeData root, value=None, extracted=['somevalue', 'othervalue'] at ...>
-         

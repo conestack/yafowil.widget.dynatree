@@ -25,7 +25,7 @@ def build_inline_dynatree(tree, selected, ulid=None):
         # TODO: handle all the parameters
         attrs = {'id': key}
         if key in selected:
-            attrs['selected'] = 'selected'
+            attrs['class'] = 'selected'
         li += tag('li', title, build_inline_dynatree(subtree, selected), 
                   '\n', **attrs)
     ul_attrs = dict()
@@ -51,7 +51,7 @@ def dynatree_renderer(widget, data):
     if isinstance(source, dict):        
         source_type = 'local'
         ulid = cssid(widget, 'dynatree-source');
-        result += build_inline_dynatree(source, data.value, ulid=ulid)        
+        result += build_inline_dynatree(source, _value(widget, data), ulid=ulid)        
     elif isinstance(source, basestring):
         source_type = 'remote'  
         result += tag('div', source, 
