@@ -50,7 +50,8 @@ def skin_response(environ, start_response):
     return response(environ, start_response)
 
 def json_response(environ, start_response):
-    selected = environ['QUERY_STRING'].split('&')
+    request = Request(environ)
+    selected = request.str_GET['selected'].split('|')    
     def dir_tree(base):
         result = []
         for value in os.listdir(base):
