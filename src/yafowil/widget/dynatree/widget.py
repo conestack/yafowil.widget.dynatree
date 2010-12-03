@@ -4,7 +4,6 @@ from yafowil.base import (
     UNSET,
 )
 from yafowil.utils import (
-    tag,
     cssid,
 )
 from yafowil.common import (
@@ -13,7 +12,7 @@ from yafowil.common import (
     _value,
 )
 
-def build_inline_dynatree(tree, selected, ulid=None):
+def build_inline_dynatree(tree, selected, tag, ulid=None):
     if tree is None: return ''
     if isinstance(selected, basestring):
         selected = [selected]
@@ -35,6 +34,7 @@ def build_inline_dynatree(tree, selected, ulid=None):
     return tag('ul',  '\n', li, **ul_attrs)
 
 def dynatree_renderer(widget, data):
+    tag = data.tag
     value = _value(widget, data)
     if isinstance(value, (list, tuple)):
         value = '|'.join(value)    
@@ -51,7 +51,8 @@ def dynatree_renderer(widget, data):
     if isinstance(source, dict):        
         source_type = 'local'
         ulid = cssid(widget, 'dynatree-source');
-        result += build_inline_dynatree(source, _value(widget, data), ulid=ulid)        
+        result += build_inline_dynatree(source, _value(widget, data), tag, 
+                                        ulid=ulid)        
     elif isinstance(source, basestring):
         source_type = 'remote'  
         result += tag('div', source, 
