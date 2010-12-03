@@ -2,7 +2,7 @@ import unittest
 import doctest 
 from pprint import pprint
 from interlude import interact
-import lxml.etree as etree
+from yafowil.tests import pxml
 
 optionflags = doctest.NORMALIZE_WHITESPACE | \
               doctest.ELLIPSIS | \
@@ -12,11 +12,6 @@ TESTFILES = [
     'widget.txt',
 ]
 
-def prettyxml(xml):
-    et = etree.fromstring(xml)
-    return etree.tostring(et, pretty_print=True)
-
-
 def test_suite():
     return unittest.TestSuite([
         doctest.DocFileSuite(
@@ -24,7 +19,7 @@ def test_suite():
             optionflags=optionflags,
             globs={'interact': interact,
                    'pprint': pprint,
-                   'prettyxml': prettyxml},
+                   'pxml': pxml},
         ) for file in TESTFILES
     ])
 

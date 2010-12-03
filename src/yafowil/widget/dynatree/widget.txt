@@ -48,7 +48,7 @@ Render plain widget, source is string.
 
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': 'http://www.foo.bar/baz.json'})
-    >>> print prettyxml(widget())
+    >>> pxml(widget())
     <div class="yafowil-widget-dynatree">
       <input id="input-root" name="root" type="hidden"/>
       <div class="dynatree-source hiddenStructure">http://www.foo.bar/baz.json</div>
@@ -62,7 +62,7 @@ Render plain widget, source is tree.
 
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': tree})
-    >>> print prettyxml(widget())
+    >>> pxml(widget())
     <div class="yafowil-widget-dynatree">
       <input id="input-root" name="root" type="hidden"/>
       <ul class="hiddenStructure" id="dynatree-source-root">
@@ -91,7 +91,7 @@ Render plain widget, source is tree, preselect ape, single select.
     >>> widget = factory('dynatree', name='root', 
     ...                  value='ape',
     ...                  props={'source': tree})
-    >>> print prettyxml(widget())
+    >>> pxml(widget())
     <div class="yafowil-widget-dynatree">
       <input id="input-root" name="root" type="hidden" value="ape"/>
       <ul class="hiddenStructure" id="dynatree-source-root">
@@ -119,7 +119,7 @@ Render plain widget, source is tree, preselect ape and swan, multi select.
     >>> widget = factory('dynatree', name='root', 
     ...                  value=['ape', 'swan'],
     ...                  props={'source': tree, 'selectMode': 1})
-    >>> print prettyxml(widget())
+    >>> pxml(widget())
     <div class="yafowil-widget-dynatree">
       <input id="input-root" name="root" type="hidden" value="ape|swan"/>
       <ul class="hiddenStructure" id="dynatree-source-root">
