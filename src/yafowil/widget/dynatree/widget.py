@@ -25,7 +25,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         attrs = {'id': key}
         if key in selected:
             attrs['class'] = 'selected'
-        li += tag('li', title, build_inline_dynatree(subtree, selected), 
+        li += tag('li', title, build_inline_dynatree(subtree, selected, tag), 
                   '\n', **attrs)
     ul_attrs = dict()
     if ulid is not None:
