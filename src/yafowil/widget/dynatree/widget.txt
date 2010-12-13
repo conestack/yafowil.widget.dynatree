@@ -25,7 +25,7 @@ A test tree::
 Test inline tree renderer separate::
 
     >>> from yafowil.widget.dynatree.widget import build_inline_dynatree
-    >>> html = build_inline_dynatree(tree, 'animal', ulid='dynatree-source')
+    >>> html = build_inline_dynatree(tree, 'animal', tag, ulid='dynatree-source')
     >>> print html
     <ul class="hiddenStructure" id="dynatree-source">
     <li class="selected" id="animal">Animals<ul>
