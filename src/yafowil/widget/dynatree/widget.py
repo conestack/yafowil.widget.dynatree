@@ -2,6 +2,7 @@ from yafowil.base import (
     ExtractionError,
     factory,
     UNSET,
+    fetch_value,
 )
 from yafowil.utils import (
     cssid,
@@ -9,7 +10,6 @@ from yafowil.utils import (
 from yafowil.common import (
     generic_extractor,
     generic_required_extractor,
-    _value,
 )
 
 def build_inline_dynatree(tree, selected, tag, ulid=None):
@@ -35,7 +35,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
 
 def dynatree_renderer(widget, data):
     tag = data.tag
-    value = _value(widget, data)
+    value = fetch_value(widget, data)
     if isinstance(value, (list, tuple)):
         value = '|'.join(value)    
     input_attrs = {
@@ -51,7 +51,7 @@ def dynatree_renderer(widget, data):
     if isinstance(source, dict):        
         source_type = 'local'
         ulid = cssid(widget, 'dynatree-source');
-        result += build_inline_dynatree(source, _value(widget, data), tag, 
+        result += build_inline_dynatree(source, fetch_value(widget, data), tag, 
                                         ulid=ulid)        
     elif isinstance(source, basestring):
         source_type = 'remote'  
