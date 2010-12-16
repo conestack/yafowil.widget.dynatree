@@ -19,6 +19,7 @@ To run the example application and tests coming with this package run
 with a buildout like so:: 
 
     [buildout]
+    develop = .
     parts = gunicorn   
     
     [tests]
