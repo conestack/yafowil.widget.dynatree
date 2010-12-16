@@ -29,7 +29,7 @@ with a buildout like so::
     [gunicorn]
     recipe = zc.recipe.egg:scripts
     eggs = 
-        ${test:eggs}
+        ${tests:eggs}
         gunicorn 
     
 Start the application with::
