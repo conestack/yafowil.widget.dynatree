@@ -148,7 +148,7 @@ Extract from selectMode=1 - means single selection.
     ...                  props={'source': tree, 'selectMode': 1})
     >>> data = widget.extract({'root': 'somevalue|'})
     >>> data
-    <RuntimeData root, value=None, extracted='somevalue' at ...>
+    <RuntimeData root, value=<UNSET>, extracted='somevalue' at ...>
     
 Extract from selectMode=2 - means single selection.
 ::
@@ -156,8 +156,8 @@ Extract from selectMode=2 - means single selection.
     ...                  props={'source': tree, 'selectMode': 2})
     >>> data = widget.extract({'root': 'somevalue|'})
     >>> data
-    <RuntimeData root, value=None, extracted=['somevalue'] at ...>         
+    <RuntimeData root, value=<UNSET>, extracted=['somevalue'] at ...>         
 
     >>> data = widget.extract({'root': 'somevalue|othervalue'})
     >>> data
-    <RuntimeData root, value=None, extracted=['somevalue', 'othervalue'] at ...>
+    <RuntimeData root, value=<UNSET>, extracted=['somevalue', 'othervalue'] at ...>
