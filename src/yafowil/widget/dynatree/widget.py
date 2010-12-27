@@ -83,8 +83,9 @@ factory.register('dynatree',
                   dynatree_extractor], 
                  [dynatree_renderer])
 factory.doc['widget']['dynatree'] = \
-"""A tree-widget utilizing the jQuery plugin `jquery.dynatree.js 
-<http://wwwendt.de/tech/dynatree/index.html>`_ (at 
+"""Add-on tree-widget `yafowil.widget.dynatree 
+<http://github.com/bluedynamics/yafowil.widget.dynatree/>`_ utilizing the jQuery 
+plugin `jquery.dynatree.js <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
 `google-code <http://code.google.com/p/dynatree/>`_).
 """
 
