@@ -1,5 +1,5 @@
-This is a **tree widget for for `YAFOWIL 
-<http://pypi.python.org/pypi/yafowil>`_** - Yet Another Form WIdget Library.
+This is a **tree widgeti** for `YAFOWIL 
+<http://pypi.python.org/pypi/yafowil>`_ - Yet Another Form WIdget Library.
 
 The tree-widget for yafowil utilizes the jQuery plugin `jquery.dynatree.js 
 <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
