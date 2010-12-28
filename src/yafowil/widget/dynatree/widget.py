@@ -6,7 +6,7 @@ from yafowil.base import (
 from yafowil.utils import (
     UNSET,
     cssid,
-    managed_props,
+    managedprops,
     css_managed_props,
 )
 from yafowil.common import (
@@ -38,7 +38,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         ul_attrs['class'] = 'hiddenStructure'
     return tag('ul',  '\n', li, **ul_attrs)
 
-@managed_props(source, *(css_managed_props+parameter_keys))
+@managedprops(source, *(css_managed_props+parameter_keys))
 def dynatree_renderer(widget, data):
     tag = data.tag
     value = fetch_value(widget, data)
@@ -76,7 +76,7 @@ def dynatree_renderer(widget, data):
     result += tag('div', **{'class': 'yafowil-widget-dynatree-tree'})
     return tag('div', result, **{'class': 'yafowil-widget-dynatree'})
 
-@managed_props('selectMode')
+@managedprops('selectMode')
 def dynatree_extractor(widget, data):
     if data.extracted is UNSET:
         return data.extracted
