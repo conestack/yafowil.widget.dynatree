@@ -1,15 +1,45 @@
-==================================
-jquery.dynatree widget for YAFOWIL
-==================================
+This is a **tree widget for for `YAFOWIL 
+<http://pypi.python.org/pypi/yafowil>`_** - Yet Another Form WIdget Library.
 
-A tree-widget for yafowil utilizing the jQuery plugin `jquery.dynatree.js 
+The tree-widget for yafowil utilizes the jQuery plugin `jquery.dynatree.js 
 <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
 `google-code <http://code.google.com/p/dynatree/>`_).
 
 Usage
 =====
 
-TODO
+The dynatree widget takes the parameters:
+
+- source
+- selectMode
+- minExpandLevel
+- rootVisible
+- autoCollapse
+- checkbox'
+
+For details read the `Dynatree Widget Documentation 
+<http://packages.python.org/yafowil/widgets.html#dynatree>`_ 
+    
+Example::
+
+    sample_tree = {
+        'animal': ('Animals', { 
+            'mammal': ('Mammals', {
+                'elephant': ('Elephant', None),
+                'ape': ('Ape', None),
+                'horse': ('Horse', None),
+            }), 
+            'bird': ('Birds', { 
+                'duck': ('Duck', None),
+                'swan': ('Swan', None),
+                'turkey': ('Turkey', None),
+                'hummingbird': ('Hummingbird', None),
+            }), 
+    })}
+    form['mytree'] = factory('dynatree', props={
+        'value': ['ape', 'bird'],
+        'source': sample_tree,
+    )
 
 Example Application
 ===================
@@ -42,6 +72,13 @@ Run the tests with::
 
     ./bin/tests
 
+Source Code
+===========
+
+The sources are in a GIT DVCS with its main branches at 
+`github <http://github.com/bluedynamics/yafowil.widget.dynatree>`_.
+
+We'd be happy to see many forks and pull-requests to make YAFOWIL even better.
 
 Contributors
 ============

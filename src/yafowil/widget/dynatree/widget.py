@@ -1,16 +1,21 @@
 from yafowil.base import (
     ExtractionError,
     factory,
-    UNSET,
     fetch_value,
 )
 from yafowil.utils import (
+    UNSET,
     cssid,
+    managed_props,
+    css_managed_props,
 )
 from yafowil.common import (
     generic_extractor,
     generic_required_extractor,
 )
+
+parameter_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
+                  'checkbox']
 
 def build_inline_dynatree(tree, selected, tag, ulid=None):
     if tree is None: return ''
@@ -33,6 +38,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         ul_attrs['class'] = 'hiddenStructure'
     return tag('ul',  '\n', li, **ul_attrs)
 
+@managed_props(source, *(css_managed_props+parameter_keys))
 def dynatree_renderer(widget, data):
     tag = data.tag
     value = fetch_value(widget, data)
@@ -61,7 +67,7 @@ def dynatree_renderer(widget, data):
         raise ValueError, 'resulting source must be [o]dict or string'
     p_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
               'checkbox']
-    params = [('%s,%s' % (_, widget.attrs[_])) for _ in p_keys]    
+    params = [('%s,%s' % (_, widget.attrs[_])) for _ in parameter_keys]    
     params.append('type,%s' % source_type)
     if source_type == 'local':
         params.append(('initId,%s' % ulid))
@@ -70,6 +76,7 @@ def dynatree_renderer(widget, data):
     result += tag('div', **{'class': 'yafowil-widget-dynatree-tree'})
     return tag('div', result, **{'class': 'yafowil-widget-dynatree'})
 
+@managed_props('selectMode')
 def dynatree_extractor(widget, data):
     if data.extracted is UNSET:
         return data.extracted
@@ -84,7 +91,7 @@ factory.register('dynatree',
                  [dynatree_renderer])
 factory.doc['widget']['dynatree'] = \
 """Add-on tree-widget `yafowil.widget.dynatree 
-<http://github.com/bluedynamics/yafowil.widget.dynatree/>`_ utilizing the jQuery 
+<http://pypi.python.org/pypi/yafowil.widget.dynatree>`_ utilizing the jQuery 
 plugin `jquery.dynatree.js <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
 `google-code <http://code.google.com/p/dynatree/>`_).
 """
@@ -105,8 +112,6 @@ jquery.dynatreee.js documentation.
 If a callable is passed it expects widget and data as parameters and has to 
 return either a string or a dict as described above.
 """
-
-factory.defaults['dynatree.required_class'] = 'required'
 
 factory.defaults['dynatree.selectMode'] = '1'
 factory.doc['props']['dynatree.selectMode'] = \
