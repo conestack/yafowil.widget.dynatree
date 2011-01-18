@@ -40,6 +40,10 @@ Example::
         'value': ['ape', 'bird'],
         'source': sample_tree,
     )
+    
+Further `yafowil.dynatree documentation 
+<http://packages.python.org/yafowil/widgets.html#dynatree>`_  is available
+
 
 Example Application
 ===================
@@ -70,7 +74,7 @@ and connect with your webbrowser to ``http://localhost:8000/``
     
 Run the tests with::
 
-    ./bin/tests
+    ./bin/tests    
 
 Source Code
 ===========

@@ -94,6 +94,9 @@ factory.doc['widget']['dynatree'] = \
 <http://pypi.python.org/pypi/yafowil.widget.dynatree>`_ utilizing the jQuery 
 plugin `jquery.dynatree.js <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
 `google-code <http://code.google.com/p/dynatree/>`_).
+
+Additional this widget triggers the javascript event ``yafowilDynatreeSelect`` 
+via jQuery on elements with class ``dynatreeSelectSensitive``.   
 """
 
 factory.doc['props']['dynatree.source'] = \
