@@ -69,6 +69,7 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
                             newvalue = newvalue + sel_nodes[idx].data.key + '|';
                         };  
                         $(dtnode.tree.$tree).siblings('input').val(newvalue);
+                        $('.dynatreeSelectSensitive').trigger('yafowilDynatreeSelect');
                     };            
                     elem.find(".yafowil-widget-dynatree-tree").dynatree(params);
                 });
