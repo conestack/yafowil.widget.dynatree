@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.0-beta2'
+version = '1.0'
 shortdesc = 'Tree Selection Widget for YAFOWIL - Yet Another Form Widget Library (Python, Web)'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
@@ -13,7 +13,6 @@ setup(name='yafowil.widget.dynatree',
       description=shortdesc,
       long_description=longdesc,
       classifiers=[
-            'Development Status :: 4 - Beta',
             'Environment :: Web Environment',
             'Operating System :: OS Independent',
             'Programming Language :: Python', 
