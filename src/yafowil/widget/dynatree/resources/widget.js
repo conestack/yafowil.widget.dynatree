@@ -33,6 +33,7 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
                         .text()
                         .split('|');
                     var params = new Array();
+                    var sourcetype = '';
                     for (var idx=0; idx < rawparams.length; idx++) {
                         var pair = rawparams[idx].split(',');
                         var value = pair[1].trim();
