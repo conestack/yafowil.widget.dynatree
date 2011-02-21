@@ -36,7 +36,7 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
                     var sourcetype = '';
                     for (var idx=0; idx < rawparams.length; idx++) {
                         var pair = rawparams[idx].split(',');
-                        var value = pair[1].trim();
+                        var value = pair[1].replace(/^\s+|\s+$/g, "");
                         if (!isNaN(value)) {
                             value = parseInt(value);
                         };
@@ -46,7 +46,7 @@ if (typeof(window['yafowil']) == "undefined") yafowil = {};
                         if (value=='False') {
                             value = false;
                         };
-                        key = pair[0].trim();
+                        key = pair[0].replace(/^\s+|\s+$/g, "");
                         if (key == 'type') {
                             sourcetype = value; 
                         } else {
