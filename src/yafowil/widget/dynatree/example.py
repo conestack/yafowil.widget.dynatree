@@ -10,6 +10,7 @@ from webob import Request, Response
 
 dir = os.path.dirname(__file__)
 
+
 sample_tree = {
     'animal': ('Animals', { 
         'mammal': ('Mammals', {
@@ -25,11 +26,13 @@ sample_tree = {
         }), 
 })}
 
+
 def javascript_response(environ, start_response):
     response = Response(content_type='text/javascript')
     with open(os.path.join(dir, 'resources', 'widget.js')) as js:
         response.write(js.read())
     return response(environ, start_response)
+
 
 def javascript_response2(environ, start_response):
     response = Response(content_type='text/javascript')
@@ -37,6 +40,7 @@ def javascript_response2(environ, start_response):
                            'jquery.dynatree.js')) as js:
         response.write(js.read())
     return response(environ, start_response)
+
 
 def skin_response(environ, start_response):
     if environ['PATH_INFO'].endswith('.gif'):        
@@ -47,6 +51,7 @@ def skin_response(environ, start_response):
                            environ['PATH_INFO'].strip('/'))) as item:
         response.write(item.read())
     return response(environ, start_response)
+
 
 def json_response(environ, start_response):
     request = Request(environ)
@@ -74,10 +79,12 @@ def json_response(environ, start_response):
     response = Response(content_type='application/json', body=dumps(data))
     return response(environ, start_response)
 
+
 def isSomethingSelectedInChildren(children, selected):
     return bool(set([_['key'] for _ in children]).intersection(selected)) \
         or bool([_ for _ in children
             if _['children'] and isSomethingSelectedInChildren(_['children'], selected)])
+
 
 def app(environ, start_response):
     url = 'http://%s/' % environ['HTTP_HOST']

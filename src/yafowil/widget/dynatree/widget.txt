@@ -1,5 +1,4 @@
-Import requirements
-::
+Import requirements::
 
     >>> import yafowil.loader
     >>> import yafowil.widget.dynatree
@@ -43,8 +42,7 @@ Test inline tree renderer separate::
     </li></ul>
     </li></ul>
 
-Render plain widget, source is string.
-::
+Render plain widget, source is string::
 
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': 'http://www.foo.bar/baz.json'})
@@ -57,8 +55,7 @@ Render plain widget, source is string.
     </div>
     <BLANKLINE>
 
-Render plain widget, source is tree.
-::
+Render plain widget, source is tree::
 
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': tree})
@@ -85,8 +82,47 @@ Render plain widget, source is tree.
     </div>
     <BLANKLINE>
 
-Render plain widget, source is tree, preselect ape, single select.
-::
+Render plain widget, source is callable::
+
+    >>> def tree_callable(widget, data):
+    ...     return tree
+    
+    >>> widget = factory('dynatree', name='root', 
+    ...                  props={'source': tree_callable})
+    >>> pxml(widget())
+    <div class="yafowil-widget-dynatree">
+      <input id="input-root" name="root" type="hidden"/>
+      <ul class="hiddenStructure" id="dynatree-source-root">
+    <li id="animal">Animals<ul>
+    <li id="mammal">Mammals<ul>
+    <li id="horse">Horse
+    </li><li id="ape">Ape
+    </li><li id="elephant">Elephant
+    </li></ul>
+    </li><li id="bird">Birds<ul>
+    <li id="turkey">Turkey
+    </li><li id="swan">Swan
+    </li><li id="hummingbird">Hummingbird
+    </li><li id="duck">Duck
+    </li></ul>
+    </li></ul>
+    </li></ul>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="yafowil-widget-dynatree-tree"/>
+    </div>
+    <BLANKLINE>
+
+Try to render plain widget, source is invalid::
+
+    >>> widget = factory('dynatree', name='root', 
+    ...                  value='ape',
+    ...                  props={'source': object()})
+    >>> pxml(widget())
+    Traceback (most recent call last):
+      ...
+    ValueError: resulting source must be [o]dict or string
+
+Render plain widget, source is tree, preselect ape, single select::
 
     >>> widget = factory('dynatree', name='root', 
     ...                  value='ape',
@@ -114,8 +150,8 @@ Render plain widget, source is tree, preselect ape, single select.
     </div>
     <BLANKLINE>
 
-Render plain widget, source is tree, preselect ape and swan, multi select.
-::
+Render plain widget, source is tree, preselect ape and swan, multi select::
+
     >>> widget = factory('dynatree', name='root', 
     ...                  value=['ape', 'swan'],
     ...                  props={'source': tree, 'selectMode': 1})
@@ -142,16 +178,16 @@ Render plain widget, source is tree, preselect ape and swan, multi select.
     </div>
     <BLANKLINE>
         
-Extract from selectMode=1 - means single selection.
-::
+Extract from selectMode=1 - means single selection::
+
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': tree, 'selectMode': 1})
     >>> data = widget.extract({'root': 'somevalue|'})
     >>> data
     <RuntimeData root, value=<UNSET>, extracted='somevalue' at ...>
     
-Extract from selectMode=2 - means single selection.
-::
+Extract from selectMode=2 - means multi selection::
+
     >>> widget = factory('dynatree', name='root', 
     ...                  props={'source': tree, 'selectMode': 2})
     >>> data = widget.extract({'root': 'somevalue|'})
@@ -161,3 +197,9 @@ Extract from selectMode=2 - means single selection.
     >>> data = widget.extract({'root': 'somevalue|othervalue'})
     >>> data
     <RuntimeData root, value=<UNSET>, extracted=['somevalue', 'othervalue'] at ...>
+
+Extract empty::
+
+    >>> data = widget.extract({})
+    >>> data.printtree()
+    <RuntimeData root, value=<UNSET>, extracted=<UNSET> at ...>

@@ -38,6 +38,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         ul_attrs['class'] = 'hiddenStructure'
     return tag('ul',  '\n', li, **ul_attrs)
 
+
 @managedprops('source', *(css_managed_props+parameter_keys))
 def dynatree_renderer(widget, data):
     tag = data.tag
@@ -75,6 +76,7 @@ def dynatree_renderer(widget, data):
                   **{'class': 'dynatree-params hiddenStructure'})
     result += tag('div', **{'class': 'yafowil-widget-dynatree-tree'})
     return tag('div', result, **{'class': 'yafowil-widget-dynatree'})
+
 
 @managedprops('selectMode')
 def dynatree_extractor(widget, data):

@@ -4,17 +4,17 @@
            xmlns:pyramid="http://pylonshq.com/pyramid">
     
     <!-- pyramid specific -->
-	
-	<pyramid:static
-	    zcml:condition="installed pyramid"
+    
+    <pyramid:static
+        zcml:condition="installed pyramid"
         name="++resource++yafowil.widget.dynatree"
         path="resources"
     />
-	
-	<!-- Plone specific -->
-	
-	<browser:resourceDirectory
-	    zcml:condition="installed Products.CMFPlone"
+    
+    <!-- Plone specific -->
+    
+    <browser:resourceDirectory
+        zcml:condition="installed Products.CMFPlone"
         name="yafowil.widget.dynatree"
         directory="resources"
     />
