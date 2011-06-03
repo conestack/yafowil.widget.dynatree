@@ -2,9 +2,12 @@
 History
 =======
 
-1.0.2dev
+1.0.3dev
 --------
 
+1.0.2
+-----
+- fixed self closing divs, which are not allowed
 
 1.0.1
 -----
