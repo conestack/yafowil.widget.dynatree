@@ -74,7 +74,7 @@ def dynatree_renderer(widget, data):
         params.append(('initId,%s' % ulid))
     result += tag('div', '|'.join(params), 
                   **{'class': 'dynatree-params hiddenStructure'})
-    result += tag('div', **{'class': 'yafowil-widget-dynatree-tree'})
+    result += tag('div','', **{'class': 'yafowil-widget-dynatree-tree'})
     return tag('div', result, **{'class': 'yafowil-widget-dynatree'})
 
 
