@@ -87,10 +87,13 @@ def dynatree_extractor(widget, data):
     value = [_ for _ in data.extracted.split('|')if _]
     return value
 
-factory.register('dynatree', 
-                 [generic_extractor, generic_required_extractor,
-                  dynatree_extractor], 
-                 [dynatree_renderer])
+
+factory.register(
+    'dynatree', 
+    extractors=[generic_extractor, generic_required_extractor,
+                dynatree_extractor], 
+    edit_renderers=[dynatree_renderer])
+
 factory.doc['widget']['dynatree'] = \
 """Add-on tree-widget `yafowil.widget.dynatree 
 <http://pypi.python.org/pypi/yafowil.widget.dynatree>`_ utilizing the jQuery 
