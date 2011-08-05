@@ -9,7 +9,7 @@ optionflags = doctest.NORMALIZE_WHITESPACE | \
               doctest.REPORT_ONLY_FIRST_FAILURE
 
 TESTFILES = [
-    'widget.txt',
+    'widget.rst',
 ]
 
 def test_suite():
