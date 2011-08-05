@@ -2,8 +2,8 @@
 History
 =======
 
-1.1dev
-------
+1.1
+---
 
 - adopt to yafowil 1.1
   [rnix, 2011-07-08]
