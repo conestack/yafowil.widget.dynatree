@@ -2,6 +2,15 @@
 History
 =======
 
+1.2
+---
+
+- adopt to yafowil 1.2
+  [jensens, 2011-09-20]
+
+- make ready for z2c.autoinclude+Plone (only if available).
+  [jensens, 2011-09-20]
+
 1.1
 ---
 

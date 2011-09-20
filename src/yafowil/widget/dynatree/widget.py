@@ -94,7 +94,7 @@ factory.register(
                 dynatree_extractor], 
     edit_renderers=[dynatree_renderer])
 
-factory.doc['widget']['dynatree'] = \
+factory.doc['blueprint']['dynatree'] = \
 """Add-on tree-widget `yafowil.widget.dynatree 
 <http://pypi.python.org/pypi/yafowil.widget.dynatree>`_ utilizing the jQuery 
 plugin `jquery.dynatree.js <http://wwwendt.de/tech/dynatree/index.html>`_ (at 
