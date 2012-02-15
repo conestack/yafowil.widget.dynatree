@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '1.2htug1'
+version = '1.3dev'
 shortdesc = 'Tree Selection Widget for YAFOWIL - Yet Another Form Widget Library (Python, Web)'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
@@ -39,8 +39,9 @@ setup(name='yafowil.widget.dynatree',
           test=tests_require,
       ),
       entry_points="""
-      # plone specific, ignore if not available
-      [z3c.autoinclude.plugin]
-      target = plone
+      [yafowil.plugin]
+      register = yafowil.widget.dynatree:register
+      resourcedir = yafowil.widget.dynatree:get_resource_dir
+      javascripts = yafowil.widget.dynatree:get_js
       """,           
       )
