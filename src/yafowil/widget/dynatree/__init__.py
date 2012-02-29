@@ -9,7 +9,7 @@ def get_resource_dir():
 def get_js(thirdparty=True):
     js = ['widget.js']
     if thirdparty:
-        js.append['jquery.dynatree/jquery.dynatree.min.js']
+        js.append('jquery.dynatree/jquery.dynatree.min.js')
     return js
 
 def get_css(thirdparty=True):
