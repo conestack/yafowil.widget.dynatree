@@ -2,6 +2,12 @@
 History
 =======
 
+1.3
+---
+
+- make resources available the new way and depend on YAFOWIL 1.3
+  [jensens, 2012-02-19]
+
 1.2
 ---
 
