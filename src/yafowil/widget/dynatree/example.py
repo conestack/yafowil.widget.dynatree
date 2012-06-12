@@ -61,15 +61,17 @@ def isSomethingSelectedInChildren(children, selected):
 
 
 def get_example():
-    part = factory(u'fieldset', name='yafowilwidgetdynatree')
-    part['local'] = factory('field:label:error:dynatree', props={
-        'label': 'Select single value',
-        'value': '',
-        'source': sample_tree})
-    part['remote'] = factory('field:label:error:dynatree', props={
-        'label': 'Select multiple',
-        'value': '',
-        'source': 'yafowil.widget.dynatree.json',
-        'selectMode': 2})
+    part1 = factory(u'fieldset', name='yafowilwidgetdynatree.local')
+    part1['local'] = factory('field:label:error:dynatree', props={
+         'label': 'Select single value',
+         'value': '',
+         'source': sample_tree})
+    part2 = factory(u'fieldset', name='yafowilwidgetdynatree.remote')
+    part2['remote'] = factory('field:label:error:dynatree', props={
+         'label': 'Select multiple',
+         'value': '',
+         'source': 'yafowil.widget.dynatree.json',
+         'selectMode': 2})
     routes = {'yafowil.widget.dynatree.json': json_response}
-    return {'widget': part, 'routes': routes}
+    return [{'widget': part1, 'doc': 'TODO'},
+            {'widget': part2, 'routes': routes, 'doc': 'TODO'}]
