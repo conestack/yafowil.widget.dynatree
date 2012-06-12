@@ -26,4 +26,8 @@ def get_css():
         'resource': 'jquery.dynatree/skin/ui.dynatree.css',
         'thirdparty': True,
         'order': 20,
+    }, {
+        'resource': 'widget.css',
+        'thirdparty': False,
+        'order': 21,
     }]
