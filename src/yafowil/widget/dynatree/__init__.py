@@ -1,4 +1,4 @@
-import os 
+import os
 
 
 def register():
@@ -23,7 +23,7 @@ def get_js():
 
 def get_css():
     return [{
-        'resource': 'jquery.dynatree/skin/ui.dynatree.css',
+        'resource': 'jquery.dynatree/skin-bootstrap/ui.dynatree.css',
         'thirdparty': True,
         'order': 20,
     }, {

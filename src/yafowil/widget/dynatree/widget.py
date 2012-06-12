@@ -15,7 +15,7 @@ from yafowil.common import (
 )
 
 parameter_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
-                  'checkbox']
+                  'checkbox', 'imagePath']
 
 def build_inline_dynatree(tree, selected, tag, ulid=None):
     if tree is None: return ''
@@ -143,9 +143,10 @@ factory.doc['props']['dynatree.autoCollapse'] = \
 """Automatically collapse all siblings, when another node is expanded.
 """
 
-factory.defaults['dynatree.leafsOnly'] = False
-factory.doc['props']['dynatree.leafsOnly'] = \
-"""Wether to select only leafs or allow also to select nodes with leafs.
+factory.defaults['dynatree.imagePath'] = 'skin-bootstrap'
+factory.doc['props']['dynatree.imagePath'] = \
+"""Path to a folder containing icons.
+
 """
 
 factory.defaults['dynatree.checkbox'] = True
