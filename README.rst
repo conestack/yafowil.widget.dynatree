@@ -46,38 +46,6 @@ Further `yafowil.dynatree documentation
 <http://packages.python.org/yafowil/widgets.html#dynatree>`_  is available
 
 
-Example Application
-===================
-
-To run the example application and tests coming with this package run 
-`bootstrap <http://python-distribute.org/bootstrap.py>`_ (Python 2.6 or 2.7) 
-with a buildout like so:: 
-
-    [buildout]
-    parts = gunicorn   
-    
-    [tests]
-    recipe = zc.recipe.testrunner
-    eggs = 
-        yafowil.widget.dynatree[test]
-    
-    [gunicorn]
-    recipe = zc.recipe.egg:scripts
-    eggs = 
-        ${test:eggs}
-        gunicorn 
-    
-Start the application with::
-
-    ./bin/gunicorn yafowil.widget.dynatree.example:app
-
-and connect with your webbrowser to ``http://localhost:8000/``
-    
-Run the tests with::
-
-    ./bin/tests    
-
-
 Source Code
 ===========
 
