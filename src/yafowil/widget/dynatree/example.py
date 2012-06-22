@@ -1,14 +1,8 @@
 import os
 import json
-from yafowil import loader
-import yafowil.webob
 from yafowil.base import factory
-from yafowil.controller import Controller
-import yafowil.widget.dynatree
-from yafowil.tests import fxml
-from webob import Request, Response
 
-dir = os.path.dirname(__file__)
+curdir = os.path.dirname(__file__)
 
 DOC_LOCAL = """\
 Dynatree with Static Content
@@ -94,7 +88,7 @@ def json_response(environ, start_response):
                                                            selected)
             result.append(new_item)
         return result
-    data = dir_tree(dir)
+    data = dir_tree(curdir)
     response = Response(content_type='application/json', body=json.dumps(data))
     return response(environ, start_response)
 
