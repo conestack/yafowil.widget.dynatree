@@ -1,5 +1,6 @@
 import os
 import json
+import urlparse
 from yafowil.base import factory
 
 curdir = os.path.dirname(__file__)
@@ -66,9 +67,10 @@ sample_tree = {
 })}
 
 
-def json_response(environ, start_response):
-    request = Request(environ)
-    selected = request.GET['selected'].split('|')
+def json_response(url):
+    purl = urlparse.urlparse(url)
+    qs = urlparse.parse_qs(purl)
+    selected = qs.get('selected', [''])[0].split('|')
     def dir_tree(base):
         result = []
         for value in os.listdir(base):
@@ -89,8 +91,9 @@ def json_response(environ, start_response):
             result.append(new_item)
         return result
     data = dir_tree(curdir)
-    response = Response(content_type='application/json', body=json.dumps(data))
-    return response(environ, start_response)
+    return {'body': json.dumps(data),
+            'header': [('Content-Type', 'application/json')]
+    }
 
 
 def isSomethingSelectedInChildren(children, selected):
