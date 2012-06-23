@@ -69,7 +69,7 @@ sample_tree = {
 
 def json_response(url):
     purl = urlparse.urlparse(url)
-    qs = urlparse.parse_qs(purl)
+    qs = urlparse.parse_qs(purl.query)
     selected = qs.get('selected', [''])[0].split('|')
     def dir_tree(base):
         result = []
