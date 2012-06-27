@@ -41,9 +41,6 @@ setup(name='yafowil.widget.dynatree',
       entry_points="""
       [yafowil.plugin]
       register = yafowil.widget.dynatree:register
-      resourcedir = yafowil.widget.dynatree:get_resource_dir
-      javascripts = yafowil.widget.dynatree:get_js
-      stylesheets = yafowil.widget.dynatree:get_css
       example = yafowil.widget.dynatree.example:get_example
       """,           
       )
