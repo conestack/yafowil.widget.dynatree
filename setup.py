@@ -6,7 +6,7 @@ shortdesc = 'Tree Selection Widget for YAFOWIL'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
-tests_require = ['interlude', 'lxml', 'yafowil.webob', 'gunicorn', 'simplejson']
+tests_require = ['interlude', 'lxml', 'yafowil.webob']
 
 setup(name='yafowil.widget.dynatree',
       version=version,

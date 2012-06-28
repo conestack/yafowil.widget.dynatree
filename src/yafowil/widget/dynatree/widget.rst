@@ -50,7 +50,7 @@ Render plain widget, source is string::
     <div class="yafowil-widget-dynatree">
       <input id="input-root" name="root" type="hidden"/>
       <div class="dynatree-source hiddenStructure">http://www.foo.bar/baz.json</div>
-      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,remote</div>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|imagePath,skin-bootstrap|type,remote</div>
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
