@@ -77,7 +77,7 @@ Render plain widget, source is tree::
     </li></ul>
     </li></ul>
     </li></ul>
-      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|imagePath,skin-bootstrap|type,local|initId,dynatree-source-root</div>
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
@@ -107,7 +107,7 @@ Render plain widget, source is callable::
     </li></ul>
     </li></ul>
     </li></ul>
-      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|imagePath,skin-bootstrap|type,local|initId,dynatree-source-root</div>
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
@@ -145,7 +145,7 @@ Render plain widget, source is tree, preselect ape, single select::
     </li></ul>
     </li></ul>
     </li></ul>
-      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|imagePath,skin-bootstrap|type,local|initId,dynatree-source-root</div>
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
@@ -173,7 +173,7 @@ Render plain widget, source is tree, preselect ape and swan, multi select::
     </li></ul>
     </li></ul>
     </li></ul>
-      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|type,local|initId,dynatree-source-root</div>
+      <div class="dynatree-params hiddenStructure">selectMode,1|minExpandLevel,1|rootVisible,False|autoCollapse,False|checkbox,True|imagePath,skin-bootstrap|type,local|initId,dynatree-source-root</div>
       <div class="yafowil-widget-dynatree-tree"/>
     </div>
     <BLANKLINE>
