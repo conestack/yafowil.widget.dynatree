@@ -14,7 +14,17 @@ js = [{
     'order': 21,
 }]
 
-css = [{
+default_css = [{
+    'resource': 'jquery.dynatree/skin/ui.dynatree.css',
+    'thirdparty': True,
+    'order': 20,
+}, {
+    'resource': 'widget.css',
+    'thirdparty': False,
+    'order': 21,
+}]
+
+bootstrap_css = [{
     'resource': 'jquery.dynatree/skin-bootstrap/ui.dynatree.css',
     'thirdparty': True,
     'order': 20,
@@ -28,4 +38,6 @@ css = [{
 def register():
     import widget
     factory.register_theme('default', 'yafowil.widget.dynatree',
-                           resourcedir, js=js, css=css)
+                           resourcedir, js=js, css=default_css)
+    factory.register_theme('bootstrap', 'yafowil.widget.dynatree',
+                           resourcedir, js=js, css=bootstrap_css)
