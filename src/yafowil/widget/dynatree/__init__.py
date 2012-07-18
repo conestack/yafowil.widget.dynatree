@@ -2,35 +2,36 @@ import os
 from yafowil.base import factory
 
 
+# XXX: use fanstatic
 resourcedir = os.path.join(os.path.dirname(__file__), 'resources')
 
 js = [{
+    'group': 'dynatree',
     'resource': 'jquery.dynatree/jquery.dynatree.min.js',
-    'thirdparty': True,
     'order': 20,
 }, {
+    'group': 'yafowil.widget.dynatree',
     'resource': 'widget.js',
-    'thirdparty': False,
     'order': 21,
 }]
 
 default_css = [{
+    'group': 'dynatree',
     'resource': 'jquery.dynatree/skin/ui.dynatree.css',
-    'thirdparty': True,
     'order': 20,
 }, {
+    'group': 'yafowil.widget.dynatree',
     'resource': 'widget.css',
-    'thirdparty': False,
     'order': 21,
 }]
 
 bootstrap_css = [{
+    'group': 'dynatree',
     'resource': 'jquery.dynatree/skin-bootstrap/ui.dynatree.css',
-    'thirdparty': True,
     'order': 20,
 }, {
+    'group': 'yafowil.widget.dynatree',
     'resource': 'widget.css',
-    'thirdparty': False,
     'order': 21,
 }]
 
