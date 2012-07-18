@@ -3,28 +3,14 @@ import json
 import urlparse
 from yafowil.base import factory
 
-
-# XXX: more generic
-try:
-    from webob import Request, Response
-    def json_response(environ, start_response):
-        request = Request(environ)
-        selected = request.params.get('selected', '').split('|')
-        data = json_data(selected)
-        from webob import Response
-        response = Response(content_type='application/json',
-                            body=json.dumps(data))
-        return response(environ, start_response)
-except ImportError:
-    def json_response(url):
-        purl = urlparse.urlparse(url)
-        qs = urlparse.parse_qs(purl.query)
-        selected = qs.get('selected', [''])[0].split('|')
-        data = json_data(selected)
-        return {'body': json.dumps(data),
-                'header': [('Content-Type', 'application/json')]
-        }
-
+def json_response(url):
+    purl = urlparse.urlparse(url)
+    qs = urlparse.parse_qs(purl.query)
+    selected = qs.get('selected', [''])[0].split('|')
+    data = json_data(selected)
+    return {'body': json.dumps(data),
+            'header': [('Content-Type', 'application/json')]
+    }
 
 def json_data(selected):
     def dir_tree(base):
