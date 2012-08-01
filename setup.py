@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import sys, os
 
-version = '2.0pre1'
+version = '1.4dev'
 shortdesc = 'Tree Selection Widget for YAFOWIL'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
@@ -31,7 +31,7 @@ setup(name='yafowil.widget.dynatree',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          'yafowil>=1.3',
+          'yafowil>=2.0',
       ],
       tests_require=tests_require,
       test_suite="yafowil.widget.dynatree.tests.test_suite",
