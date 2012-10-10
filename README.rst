@@ -5,7 +5,7 @@ The tree-widget for yafowil utilizes the jQuery plugin `jquery.dynatree.js
 <http://wwwendt.de/tech/dynatree/index.html>`_ (at
 `google-code <http://code.google.com/p/dynatree/>`_).
 
-- `Documentation <http://docs.yafowil.info/yafowil/blueprints.html#dynatree>`_
+- `Documentation <http://docs.yafowil.info/en/latest/blueprints.html#dynatree>`_
 - `DEMO - see it Live <http://demo.yafowil.info/++widget++yafowil.widget.dynatree/index.html>`_
 
 
