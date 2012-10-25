@@ -8,14 +8,17 @@ from yafowil.utils import (
     cssid,
     managedprops,
     css_managed_props,
+    attr_value,
 )
 from yafowil.common import (
     generic_extractor,
     generic_required_extractor,
 )
 
+
 parameter_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
                   'checkbox', 'imagePath']
+
 
 def build_inline_dynatree(tree, selected, tag, ulid=None):
     if tree is None: return ''
@@ -39,7 +42,7 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
     return tag('ul',  '\n', li, **ul_attrs)
 
 
-@managedprops('source', *(css_managed_props+parameter_keys))
+@managedprops('source', *(css_managed_props + parameter_keys))
 def dynatree_renderer(widget, data):
     tag = data.tag
     value = fetch_value(widget, data)
@@ -51,8 +54,8 @@ def dynatree_renderer(widget, data):
         'name_': widget.dottedpath,
         'id': cssid(widget, 'input')    
     }
-    result = tag('input', **input_attrs)    
-    source = widget.attrs['source']
+    result = tag('input', **input_attrs)
+    source = attr_value('source', widget, data)
     if callable(source):
         source = source(widget, data)
     if isinstance(source, dict):        
@@ -68,7 +71,8 @@ def dynatree_renderer(widget, data):
         raise ValueError, 'resulting source must be [o]dict or string'
     p_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
               'checkbox']
-    params = [('%s,%s' % (_, widget.attrs[_])) for _ in parameter_keys]    
+    params = [('%s,%s' % (_, attr_value(_, widget, data))) \
+                  for _ in parameter_keys]
     params.append('type,%s' % source_type)
     if source_type == 'local':
         params.append(('initId,%s' % ulid))
@@ -82,7 +86,7 @@ def dynatree_renderer(widget, data):
 def dynatree_extractor(widget, data):
     if data.extracted is UNSET:
         return data.extracted
-    if widget.attrs['selectMode'] == 1:
+    if attr_value('selectMode', widget, data) == 1:
         return data.extracted.strip('|')
     value = [_ for _ in data.extracted.split('|')if _]
     return value
