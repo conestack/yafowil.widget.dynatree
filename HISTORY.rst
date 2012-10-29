@@ -2,8 +2,8 @@
 History
 =======
 
-1.4.1dev
---------
+1.4.1
+-----
 
 - use ``yafowil.utils.attr_value`` wherever possible.
   [rnix, 2012-10-25]
