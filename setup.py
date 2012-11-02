@@ -1,5 +1,9 @@
-from setuptools import setup, find_packages
-import sys, os
+import os
+from setuptools import (
+    setup,
+    find_packages,
+)
+
 
 version = '1.4.1'
 shortdesc = 'Tree Selection Widget for YAFOWIL'
@@ -8,16 +12,17 @@ longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'LICENSE.rst')).read()
 tests_require = ['yafowil[test]']
 
+
 setup(name='yafowil.widget.dynatree',
       version=version,
       description=shortdesc,
       long_description=longdesc,
       classifiers=[
-            'Environment :: Web Environment',
-            'Operating System :: OS Independent',
-            'Programming Language :: Python', 
-            'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
-            'License :: OSI Approved :: BSD License',
+          'Environment :: Web Environment',
+          'Operating System :: OS Independent',
+          'Programming Language :: Python', 
+          'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+          'License :: OSI Approved :: BSD License',
       ],
       keywords='',
       author='BlueDynamics Alliance',
@@ -42,5 +47,4 @@ setup(name='yafowil.widget.dynatree',
       [yafowil.plugin]
       register = yafowil.widget.dynatree:register
       example = yafowil.widget.dynatree.example:get_example
-      """,           
-      )
+      """)
