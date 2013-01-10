@@ -56,8 +56,6 @@ def dynatree_renderer(widget, data):
     }
     result = tag('input', **input_attrs)
     source = attr_value('source', widget, data)
-    if callable(source):
-        source = source(widget, data)
     if isinstance(source, dict):        
         source_type = 'local'
         ulid = cssid(widget, 'dynatree-source');
