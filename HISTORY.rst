@@ -2,6 +2,12 @@
 History
 =======
 
+1.4.2dev
+--------
+
+- No notable changes yet
+  [rnix, 2014-04-30]
+
 1.4.1
 -----
 

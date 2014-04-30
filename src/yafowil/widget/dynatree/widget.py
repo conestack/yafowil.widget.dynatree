@@ -1,5 +1,4 @@
 from yafowil.base import (
-    ExtractionError,
     factory,
     fetch_value,
 )
