@@ -3,6 +3,7 @@ import json
 import urlparse
 from yafowil.base import factory
 
+
 def json_response(url):
     purl = urlparse.urlparse(url)
     qs = urlparse.parse_qs(purl.query)
@@ -11,6 +12,7 @@ def json_response(url):
     return {'body': json.dumps(data),
             'header': [('Content-Type', 'application/json')]
     }
+
 
 def json_data(selected):
     def dir_tree(base):
@@ -75,14 +77,16 @@ Define a tree of dicts with each value a tuple::
                 'turkey': ('Turkey', None),
                 'hummingbird': ('Hummingbird', None),
             }),
-    })}
+        }),
+    }
 
 Then the widget can be factored so::
 
     factory('#field:dynatree', props={
         'label': 'Select single value',
         'value': '',
-        'source': sample_tree})
+        'source': sample_tree,
+    })
 """
 
 DOC_DYNAMIC = """\
@@ -97,26 +101,37 @@ this way::
         'label': 'Select multiple',
         'value': '',
         'source': 'yafowil.widget.dynatree.json',
-        'selectMode': 2})
+        'selectMode': 2,
+    })
 """
+
 
 def get_example():
     part1 = factory(u'fieldset', name='yafowilwidgetdynatree.local')
     part1['local'] = factory('#field:dynatree', props={
-         'label': 'Select single value',
-         'value': '',
-         'source': sample_tree})
+        'label': 'Select single value',
+        'value': '',
+        'source': sample_tree,
+    })
     part2 = factory(u'fieldset', name='yafowilwidgetdynatree.remote')
     part2['remote'] = factory('#field:dynatree', props={
-         'label': 'Select multiple',
-         'value': '',
-         'source': 'yafowil.widget.dynatree.json',
-         'selectMode': 2})
-    routes = {'yafowil.widget.dynatree.json': json_response}
-    return [{'widget': part1,
-             'doc': DOC_LOCAL,
-             'title': 'Static Tree'},
-            {'widget': part2,
-             'routes': routes,
-             'doc': DOC_DYNAMIC,
-             'title': 'Tree via JSON'}]
+        'label': 'Select multiple',
+        'value': '',
+        'source': 'yafowil.widget.dynatree.json',
+        'selectMode': 2,
+    })
+    routes = {
+        'yafowil.widget.dynatree.json': json_response,
+    }
+    return [
+        {
+            'widget': part1,
+            'doc': DOC_LOCAL,
+            'title': 'Static Tree',
+        }, {
+            'widget': part2,
+            'routes': routes,
+            'doc': DOC_DYNAMIC,
+            'title': 'Tree via JSON',
+        },
+    ]

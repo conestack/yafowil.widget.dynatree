@@ -6,6 +6,7 @@ ul.dynatree-container
 	white-space: nowrap;
 	margin: 0; /* issue 201 */
 	overflow: auto;
+	line-height: 1;
 }
 
 ul.dynatree-container ul

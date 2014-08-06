@@ -5,7 +5,7 @@ from setuptools import (
 )
 
 
-version = '1.4.2dev'
+version = '1.4.2.dev0'
 shortdesc = 'Tree Selection Widget for YAFOWIL'
 longdesc = open(os.path.join(os.path.dirname(__file__), 'README.rst')).read()
 longdesc += open(os.path.join(os.path.dirname(__file__), 'HISTORY.rst')).read()
