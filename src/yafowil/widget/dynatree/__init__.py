@@ -1,5 +1,5 @@
-import os
 from yafowil.base import factory
+import os
 
 
 resourcedir = os.path.join(os.path.dirname(__file__), 'resources')

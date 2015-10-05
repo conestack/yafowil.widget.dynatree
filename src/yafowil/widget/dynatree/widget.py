@@ -1,22 +1,22 @@
-from yafowil.base import (
-    factory,
-    fetch_value,
-)
-from yafowil.utils import (
-    UNSET,
-    cssid,
-    managedprops,
-    css_managed_props,
-    attr_value,
-)
-from yafowil.common import (
-    generic_extractor,
-    generic_required_extractor,
-)
+from node.utils import UNSET
+from yafowil.base import factory
+from yafowil.base import fetch_value
+from yafowil.common import generic_extractor
+from yafowil.common import generic_required_extractor
+from yafowil.utils import attr_value
+from yafowil.utils import css_managed_props
+from yafowil.utils import cssid
+from yafowil.utils import managedprops
 
 
-parameter_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
-                  'checkbox', 'imagePath']
+parameter_keys = [
+    'selectMode',
+    'minExpandLevel',
+    'rootVisible',
+    'autoCollapse',
+    'checkbox',
+    'imagePath'
+]
 
 
 def build_inline_dynatree(tree, selected, tag, ulid=None):
