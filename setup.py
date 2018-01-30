@@ -38,7 +38,7 @@ setup(
         'yafowil>2.1.99',
     ],
     tests_require=tests_require,
-    test_suite="yafowil.widget.dynatree.tests.test_suite",
+    test_suite="yafowil.widget.dynatree.tests",
     extras_require = dict(
         test=tests_require,
     ),
