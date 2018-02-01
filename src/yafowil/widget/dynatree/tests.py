@@ -1,16 +1,20 @@
-from node.tests import NodeTestCase
 from node.utils import UNSET
 from odict import odict
 from yafowil.base import ExtractionError
 from yafowil.base import factory
+from yafowil.tests import YafowilTestCase
 from yafowil.tests import fxml
 from yafowil.utils import tag
 from yafowil.widget.dynatree.widget import build_inline_dynatree
-import yafowil.widget.dynatree
 import yafowil.loader
 
 
-class TestDynatreeWidget(NodeTestCase):
+class TestDynatreeWidget(YafowilTestCase):
+
+    def setUp(self):
+        super(TestDynatreeWidget, self).setUp()
+        from yafowil.widget.dynatree import widget
+        reload(widget)
 
     @property
     def mock_tree(self):
