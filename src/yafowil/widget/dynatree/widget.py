@@ -8,6 +8,10 @@ from yafowil.utils import css_managed_props
 from yafowil.utils import cssid
 from yafowil.utils import managedprops
 
+from yafowil.compat import IS_PY2
+
+if not IS_PY2:
+    basestring = str
 
 parameter_keys = [
     'selectMode',

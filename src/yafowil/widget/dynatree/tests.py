@@ -1,3 +1,8 @@
+from yafowil.compat import IS_PY2
+
+if not IS_PY2:
+    from importlib import reload
+
 from node.utils import UNSET
 from odict import odict
 from yafowil.base import ExtractionError
@@ -19,23 +24,23 @@ class TestDynatreeWidget(YafowilTestCase):
     @property
     def mock_tree(self):
         # A test tree
-        tree = {
-            'animal': (
-                'Animals', {
-                    'mammal': ('Mammals', {
-                        'elephant': ('Elephant', None),
-                        'ape': ('Ape', None),
-                        'horse': ('Horse', None),
-                    }),
-                    'bird': ('Birds', {
-                        'duck': ('Duck', None),
-                        'swan': ('Swan', None),
-                        'turkey': ('Turkey', None),
-                        'hummingbird': ('Hummingbird', None),
-                    }),
-                }
-            )
-        }
+        tree = odict()
+        animals = odict()
+        tree['animal'] = ('Animals', animals)
+
+        mammal = odict()
+        mammal['horse'] = ('Horse', None)
+        mammal['ape'] = ('Ape', None)
+        mammal['elephant'] = ('Elephant', None)
+        animals['mammal'] = ('Mammals', mammal)
+
+        bird = odict()
+        bird['turkey'] = ('Turkey', None)
+        bird['swan'] = ('Swan', None)
+        bird['hummingbird'] = ('Hummingbird', None)
+        bird['duck'] = ('Duck', None)
+        animals['bird'] = ('Birds', bird)
+
         return tree
 
     def test_inline_tree_renderer(self):
