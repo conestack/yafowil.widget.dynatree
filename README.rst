@@ -21,4 +21,8 @@ We'd be happy to see many forks and pull-requests to make YAFOWIL even better.
 Contributors
 ============
 
-- Jens Klein <jens@bluedynamics.com>
+- Jens Klein
+
+- Robert Niederreiter
+
+- Georg Bernhard
