@@ -1,12 +1,20 @@
 from yafowil.base import factory
+from yafowil.compat import IS_PY2
 import json
 import os
-import urlparse
+
+
+if IS_PY2:
+    from urlparse import urlparse
+    from urlparse import parse_qs
+else:
+    from urllib.parse import urlparse
+    from urllib.parse import parse_qs
 
 
 def json_response(url):
-    purl = urlparse.urlparse(url)
-    qs = urlparse.parse_qs(purl.query)
+    purl = urlparse(url)
+    qs = parse_qs(purl.query)
     selected = qs.get('selected', [''])[0].split('|')
     data = json_data(selected)
     return {'body': json.dumps(data),
