@@ -46,26 +46,26 @@ def dynatree_renderer(widget, data):
     tag = data.tag
     value = fetch_value(widget, data)
     if isinstance(value, (list, tuple)):
-        value = '|'.join(value)    
+        value = '|'.join(value)
     input_attrs = {
         'type': 'hidden',
         'value':  value,
         'name_': widget.dottedpath,
-        'id': cssid(widget, 'input')    
+        'id': cssid(widget, 'input')
     }
     result = tag('input', **input_attrs)
     source = attr_value('source', widget, data)
-    if isinstance(source, dict):        
+    if isinstance(source, dict):
         source_type = 'local'
         ulid = cssid(widget, 'dynatree-source');
         result += build_inline_dynatree(source, fetch_value(widget, data), tag, 
-                                        ulid=ulid)        
+                                        ulid=ulid)
     elif isinstance(source, basestring):
-        source_type = 'remote'  
-        result += tag('div', source, 
+        source_type = 'remote'
+        result += tag('div', source,
                       **{'class': 'dynatree-source hiddenStructure'})
     else:
-        raise ValueError, 'resulting source must be [o]dict or string'
+        raise ValueError('resulting source must be [o]dict or string')
     p_keys = ['selectMode', 'minExpandLevel', 'rootVisible', 'autoCollapse', 
               'checkbox']
     params = [('%s,%s' % (_, attr_value(_, widget, data))) \
