@@ -17,8 +17,9 @@ def json_response(url):
     qs = parse_qs(purl.query)
     selected = qs.get('selected', [''])[0].split('|')
     data = json_data(selected)
-    return {'body': json.dumps(data),
-            'header': [('Content-Type', 'application/json')]
+    return {
+        'body': json.dumps(data),
+        'header': [('Content-Type', 'application/json')]
     }
 
 
@@ -28,7 +29,7 @@ def json_data(selected):
         for value in os.listdir(base):
             if value.endswith('pyc') or value.startswith('.'):
                 continue
-            new_item = {} #we have to have boolItems
+            new_item = {}  # we have to have boolItems
             new_item['key'] = os.path.join(base, value)
             new_item['title'] = value
             new_item['children'] = []
@@ -46,24 +47,30 @@ def json_data(selected):
 
 def children_selected(children, selected):
     return bool(set([_['key'] for _ in children]).intersection(selected)) \
-        or bool([_ for _ in children
-            if _['children'] and children_selected(_['children'], selected)])
+        or bool([_ for _ in children if _['children'] and children_selected(_['children'], selected)])
 
 
 sample_tree = {
-    'animal': ('Animals', {
-        'mammal': ('Mammals', {
-            'elephant': ('Elephant', None),
-            'ape': ('Ape', None),
-            'horse': ('Horse', None),
-        }),
-        'bird': ('Birds', {
-            'duck': ('Duck', None),
-            'swan': ('Swan', None),
-            'turkey': ('Turkey', None),
-            'hummingbird': ('Hummingbird', None),
-        }),
-})}
+    'animal': (
+        'Animals', {
+            'mammal': (
+                'Mammals', {
+                    'elephant': ('Elephant', None),
+                    'ape': ('Ape', None),
+                    'horse': ('Horse', None)
+                }
+            ),
+            'bird': (
+                'Birds', {
+                    'duck': ('Duck', None),
+                    'swan': ('Swan', None),
+                    'turkey': ('Turkey', None),
+                    'hummingbird': ('Hummingbird', None)
+                }
+            )
+        }
+    )
+}
 
 
 DOC_LOCAL = """\

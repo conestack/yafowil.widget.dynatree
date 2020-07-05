@@ -1,13 +1,13 @@
 from node.utils import UNSET
 from odict import odict
-from yafowil.base import ExtractionError
 from yafowil.base import factory
 from yafowil.compat import IS_PY2
-from yafowil.tests import YafowilTestCase
 from yafowil.tests import fxml
+from yafowil.tests import YafowilTestCase
 from yafowil.utils import tag
 from yafowil.widget.dynatree.widget import build_inline_dynatree
-import yafowil.loader
+import unittest
+import yafowil.loader  # noqa
 
 
 if not IS_PY2:
@@ -239,7 +239,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': self.mock_tree,
                 'selectMode': 1
-        })
+            })
         data = widget.extract({'root': 'somevalue|'})
         self.assertEqual(
             [data.name, data.value, data.extracted, data.errors],
@@ -283,4 +283,4 @@ class TestDynatreeWidget(YafowilTestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()                                          # pragma: no cover
+    unittest.main()

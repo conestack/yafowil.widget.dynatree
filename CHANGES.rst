@@ -1,5 +1,4 @@
-
-History
+Changes
 =======
 
 1.7 (unreleased)
