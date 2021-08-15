@@ -1,3 +1,4 @@
+from node.utils import safe_decode
 from node.utils import UNSET
 from yafowil.base import factory
 from yafowil.base import fetch_value
@@ -59,7 +60,7 @@ def dynatree_renderer(widget, data):
     source = attr_value('source', widget, data)
     if isinstance(source, dict):
         source_type = 'local'
-        ulid = cssid(widget, 'dynatree-source').decode()
+        ulid = safe_decode(cssid(widget, 'dynatree-source'))
         result += build_inline_dynatree(
             source,
             fetch_value(widget, data),

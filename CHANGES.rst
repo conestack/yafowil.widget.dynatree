@@ -4,7 +4,8 @@ Changes
 1.7 (unreleased)
 ----------------
 
-- No changes yet.
+- Use ``node.utils.safe_decode`` in ``dynatree_renderer`` for creating ul id.
+  [rnix]
 
 
 1.6 (2018-07-16)
