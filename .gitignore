@@ -16,3 +16,10 @@
 /.project
 /.DS_Store
 /.mr.developer.cfg
+/karma/
+/lib/
+/lib64
+/node_modules/
+/package-lock.json
+/pyvenv.cfg
+/share/
