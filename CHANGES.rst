@@ -4,6 +4,9 @@ Changes
 1.7 (unreleased)
 ----------------
 
+- Pin upper versions of dependencies.
+  [lenadax]
+
 - Use ``node.utils.safe_decode`` in ``dynatree_renderer`` for creating ul id.
   [rnix]
 
