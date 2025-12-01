@@ -11,5 +11,5 @@
 	window.yafowil.dynatree = exports;
 
 
-}());
+})();
 //# sourceMappingURL=yafowil.widget.dynatree.js.map

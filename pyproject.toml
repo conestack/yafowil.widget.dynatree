@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling", "hatch-fancy-pypi-readme"]
+build-backend = "hatchling.build"
 
 [project]
 name = "yafowil.widget.dynatree"
@@ -24,18 +24,44 @@ dependencies = [
     "yafowil>2.1.99",
 ]
 
+[project.optional-dependencies]
+test = [
+    "zope.pytestlayer",
+    "pytest",
+]
+
 [project.entry-points."yafowil.plugin"]
 register = "yafowil.widget.dynatree:register"
 example = "yafowil.widget.dynatree.example:get_example"
 
-[tool.setuptools.packages.find]
-where = ["src"]
+[tool.hatch.metadata.hooks.fancy-pypi-readme]
+content-type = "text/x-rst"
+fragments = [
+    {path = "README.rst"},
+    {text = "\n\n"},
+    {path = "CHANGES.rst"},
+    {text = "\n\n"},
+    {path = "LICENSE.rst"},
+]
 
-[tool.setuptools]
-zip-safe = false
+[tool.hatch.build.targets.sdist]
+exclude = [
+    "/.github/",
+    "/js/",
+    "/Makefile",
+    "/mx.ini",
+    "/mxmake.yaml",
+    "/package.json",
+    "/pnpm-lock.yaml",
+]
 
-[tool.setuptools.package-dir]
-"" = "src"
+[tool.hatch.build.targets.wheel]
+packages = ["src/yafowil"]
+
+[tool.pytest.ini_options]
+consider_namespace_packages = true
+addopts = ["--import-mode=importlib"]
+pythonpath = "src"
 
 [tool.zest-releaser]
 create-wheel = true
