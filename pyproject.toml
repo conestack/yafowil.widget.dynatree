@@ -28,6 +28,7 @@ dependencies = [
 test = [
     "zope.pytestlayer",
     "pytest",
+    "lxml"
 ]
 
 [project.entry-points."yafowil.plugin"]
