@@ -1,4 +1,4 @@
-name: Test yafowil.widget.dict
+name: Test yafowil.widget.dynatree
 
 on: [push]
 
