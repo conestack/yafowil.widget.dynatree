@@ -50,7 +50,7 @@ class TestDynatreeWidget(YafowilTestCase):
             tag,
             ulid='dynatree-source'
         )
-        self.check_output("""
+        self.checkOutput("""
         <ul class="hiddenStructure" id="dynatree-source">
         <li class="selected" id="animal">Animals<ul>
         <li id="mammal">Mammals<ul>
@@ -76,7 +76,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': 'http://www.foo.bar/baz.json'
             })
-        self.check_output("""
+        self.checkOutput("""
         <div class="yafowil-widget-dynatree">
           <input id="input-root" name="root" type="hidden"/>
           <div class="dynatree-source hiddenStructure">http://www.foo.bar/baz.json</div>
@@ -93,7 +93,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': self.mock_tree
             })
-        self.check_output("""
+        self.checkOutput("""
         <div class="yafowil-widget-dynatree">
           <input id="input-root" name="root" type="hidden"/>
           <ul class="hiddenStructure" id="dynatree-source-root">
@@ -127,7 +127,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': tree_callable
             })
-        self.check_output("""
+        self.checkOutput("""
         <div class="yafowil-widget-dynatree">
           <input id="input-root" name="root" type="hidden"/>
           <ul class="hiddenStructure" id="dynatree-source-root">
@@ -159,7 +159,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': object()
             })
-        err = self.expect_error(
+        err = self.expectError(
             ValueError,
             widget
         )
@@ -174,7 +174,7 @@ class TestDynatreeWidget(YafowilTestCase):
             props={
                 'source': self.mock_tree
             })
-        self.check_output("""
+        self.checkOutput("""
         <div class="yafowil-widget-dynatree">
           <input id="input-root" name="root" type="hidden" value="ape"/>
           <ul class="hiddenStructure" id="dynatree-source-root">
@@ -208,7 +208,7 @@ class TestDynatreeWidget(YafowilTestCase):
                 'source': self.mock_tree,
                 'selectMode': 1
             })
-        self.check_output("""
+        self.checkOutput("""
         <div class="yafowil-widget-dynatree">
           <input id="input-root" name="root" type="hidden" value="ape|swan"/>
           <ul class="hiddenStructure" id="dynatree-source-root">
