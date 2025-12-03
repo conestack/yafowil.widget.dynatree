@@ -1,11 +1,21 @@
 Changes
 =======
 
-1.7 (unreleased)
+2.0.0 (unreleased)
+------------------
+
+- Update package layout to use ``pyproject.toml`` and ``hatchling``.
+  [rnix, lenadax]
+
+
+1.7 (2025-11-03)
 ----------------
 
 - Use ``node.utils.safe_decode`` in ``dynatree_renderer`` for creating ul id.
   [rnix]
+
+- Pin upper versions of dependencies.
+  [lenadax]
 
 
 1.6 (2018-07-16)

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "yafowil.widget.dynatree"
-version = "1.7.dev0"
+version = "2.0.0.dev0"
 description = "Tree Selection Widget for YAFOWIL"
 readme = "README.rst"
 license = {text = "Simplified BSD"}
@@ -13,22 +13,22 @@ classifiers = [
     "Environment :: Web Environment",
     "Operating System :: OS Independent",
     "Programming Language :: Python",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
     "License :: OSI Approved :: BSD License",
-    "Programming Language :: Python :: 2.7",
-    "Programming Language :: Python :: 3.5",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
 ]
 dependencies = [
-    "yafowil>2.1.99",
+    "yafowil>3.99",
 ]
 
 [project.optional-dependencies]
 test = [
-    "zope.pytestlayer",
+    "lxml",
     "pytest",
-    "lxml"
 ]
 
 [project.entry-points."yafowil.plugin"]
