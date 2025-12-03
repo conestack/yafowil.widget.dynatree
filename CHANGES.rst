@@ -4,7 +4,7 @@ Changes
 2.0.0 (unreleased)
 ------------------
 
-- Update package layout to use ``pyproject.toml`` and ``hatchling``.
+- Refactor package layout to use ``pyproject.toml`` and implicit namespace packages.
   [rnix, lenadax]
 
 
