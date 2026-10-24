@@ -9,7 +9,6 @@
 #: core.packages
 #: core.sources
 #: js.nodejs
-#: js.rollup
 #: js.wtr
 #: qa.coverage
 #: qa.ruff
@@ -91,12 +90,6 @@ WTR_CONFIG?=js/wtr.config.mjs
 # Web test runner additional command line options.
 # Default: --coverage
 WTR_OPTIONS?=--coverage
-
-## js.rollup
-
-# Rollup config file.
-# Default: rollup.conf.js
-ROLLUP_CONFIG?=js/rollup.conf.js
 
 ## core.mxenv
 
@@ -322,19 +315,6 @@ NODEJS_DEV_PACKAGES+=\
 .PHONY: wtr
 wtr: $(NODEJS_TARGET)
 	@web-test-runner $(WTR_OPTIONS) --config $(WTR_CONFIG)
-
-##############################################################################
-# rollup
-##############################################################################
-
-NODEJS_DEV_PACKAGES+=\
-	rollup \
-	rollup-plugin-cleanup \
-	@rollup/plugin-terser
-
-.PHONY: rollup
-rollup: $(NODEJS_TARGET)
-	@rollup --config $(ROLLUP_CONFIG)
 
 ##############################################################################
 # mxenv

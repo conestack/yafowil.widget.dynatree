@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import '../src/bundle.js';
 
 // widget.js is a classic script relying on a global jQuery. Load it via
 // script tag and capture its DOM ready callback instead of letting jQuery run

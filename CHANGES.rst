@@ -10,14 +10,15 @@ Changes
 - Remove the unused rollup bundles ``yafowil.widget.dynatree.js`` and
   ``yafowil.widget.dynatree.min.js`` including source maps. They were not
   delivered as resources and threw when loaded. The widget uses
-  ``resources/widget.js``.
+  ``resources/widget.js``. The rollup config ``js/rollup.conf.js``, the bundle
+  entry ``js/src/bundle.js``, the ``js.rollup`` Makefile domain and the rollup
+  dev dependencies are removed as well.
   [rnix]
 
 - Sync ``resources/widget.js`` with ``js/src/widget.js``.
   [rnix]
 
-- Extend the JS tests to 100 % coverage, all modules including bundles are
-  loaded by the tests now.
+- Extend the JS tests to 100 % coverage.
   [rnix]
 
 - Lint and format the JS code with biome. ``make check`` runs ``biome check``,

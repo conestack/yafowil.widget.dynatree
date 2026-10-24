@@ -5,7 +5,7 @@
  * Optional: bdajax
  */
 
-if (typeof window.yafowil === 'undefined') yafowil = {};
+window.yafowil = window.yafowil || {};
 
 (($) => {
     $(document).ready(() => {
