@@ -16,7 +16,7 @@ parameter_keys = [
     'rootVisible',
     'autoCollapse',
     'checkbox',
-    'imagePath'
+    'imagePath',
 ]
 
 
@@ -34,8 +34,9 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         attrs = {'id': key}
         if key in selected:
             attrs['class'] = 'selected'
-        li += tag('li', title, build_inline_dynatree(subtree, selected, tag),
-                  '\n', **attrs)
+        li += tag(
+            'li', title, build_inline_dynatree(subtree, selected, tag), '\n', **attrs
+        )
     ul_attrs = dict()
     if ulid is not None:
         ul_attrs['id'] = ulid
@@ -53,33 +54,24 @@ def dynatree_renderer(widget, data):
         'type': 'hidden',
         'value': value,
         'name_': widget.dottedpath,
-        'id': cssid(widget, 'input')
+        'id': cssid(widget, 'input'),
     }
     result = tag('input', **input_attrs)
     source = attr_value('source', widget, data)
     if isinstance(source, dict):
         source_type = 'local'
         ulid = safe_decode(cssid(widget, 'dynatree-source'))
-        result += build_inline_dynatree(
-            source,
-            fetch_value(widget, data),
-            tag,
-            ulid=ulid
-        )
+        result += build_inline_dynatree(source, fetch_value(widget, data), tag, ulid=ulid)
     elif isinstance(source, str):
         source_type = 'remote'
-        result += tag('div', source,
-                      **{'class': 'dynatree-source hiddenStructure'})
+        result += tag('div', source, **{'class': 'dynatree-source hiddenStructure'})
     else:
         raise ValueError('resulting source must be [o]dict or string')
-    params = [
-        ('%s,%s' % (_, attr_value(_, widget, data))) for _ in parameter_keys
-    ]
+    params = [('%s,%s' % (_, attr_value(_, widget, data))) for _ in parameter_keys]
     params.append('type,%s' % source_type)
     if source_type == 'local':
-        params.append(('initId,%s' % ulid))
-    result += tag('div', '|'.join(params),
-                  **{'class': 'dynatree-params hiddenStructure'})
+        params.append('initId,%s' % ulid)
+    result += tag('div', '|'.join(params), **{'class': 'dynatree-params hiddenStructure'})
     result += tag('div', '', **{'class': 'yafowil-widget-dynatree-tree'})
     return tag('div', result, **{'class': 'yafowil-widget-dynatree'})
 
@@ -90,18 +82,14 @@ def dynatree_extractor(widget, data):
         return data.extracted
     if attr_value('selectMode', widget, data) == 1:
         return data.extracted.strip('|')
-    value = [_ for _ in data.extracted.split('|')if _]
+    value = [_ for _ in data.extracted.split('|') if _]
     return value
 
 
 factory.register(
     'dynatree',
-    extractors=[
-        generic_extractor,
-        generic_required_extractor,
-        dynatree_extractor
-    ],
-    edit_renderers=[dynatree_renderer]
+    extractors=[generic_extractor, generic_required_extractor, dynatree_extractor],
+    edit_renderers=[dynatree_renderer],
 )
 
 factory.doc['blueprint']['dynatree'] = """\

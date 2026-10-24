@@ -10,10 +10,7 @@ def json_response(url):
     qs = parse_qs(purl.query)
     selected = qs.get('selected', [''])[0].split('|')
     data = json_data(selected)
-    return {
-        'body': json.dumps(data),
-        'header': [('Content-Type', 'application/json')]
-    }
+    return {'body': json.dumps(data), 'header': [('Content-Type', 'application/json')]}
 
 
 def json_data(selected):
@@ -31,37 +28,47 @@ def json_data(selected):
             new_item['select'] = new_item['key'] in selected
             new_item['isFolder'] = bool(new_item['children'])
             new_item['hideCheckbox'] = False
-            new_item['expand'] = new_item['key'] in selected \
-                or children_selected(new_item['children'], selected)
+            new_item['expand'] = new_item['key'] in selected or children_selected(
+                new_item['children'], selected
+            )
             result.append(new_item)
         return result
+
     return dir_tree(os.path.dirname(__file__))
 
 
 def children_selected(children, selected):
-    return bool(set([_['key'] for _ in children]).intersection(selected)) \
-        or bool([_ for _ in children if _['children'] and children_selected(_['children'], selected)])
+    return bool(set([_['key'] for _ in children]).intersection(selected)) or bool(
+        [
+            _
+            for _ in children
+            if _['children'] and children_selected(_['children'], selected)
+        ]
+    )
 
 
 sample_tree = {
     'animal': (
-        'Animals', {
+        'Animals',
+        {
             'mammal': (
-                'Mammals', {
+                'Mammals',
+                {
                     'elephant': ('Elephant', None),
                     'ape': ('Ape', None),
-                    'horse': ('Horse', None)
-                }
+                    'horse': ('Horse', None),
+                },
             ),
             'bird': (
-                'Birds', {
+                'Birds',
+                {
                     'duck': ('Duck', None),
                     'swan': ('Swan', None),
                     'turkey': ('Turkey', None),
-                    'hummingbird': ('Hummingbird', None)
-                }
-            )
-        }
+                    'hummingbird': ('Hummingbird', None),
+                },
+            ),
+        },
     )
 }
 
@@ -115,19 +122,25 @@ this way::
 
 
 def get_example():
-    part1 = factory(u'fieldset', name='yafowilwidgetdynatree.local')
-    part1['local'] = factory('#field:dynatree', props={
-        'label': 'Select single value',
-        'value': '',
-        'source': sample_tree,
-    })
-    part2 = factory(u'fieldset', name='yafowilwidgetdynatree.remote')
-    part2['remote'] = factory('#field:dynatree', props={
-        'label': 'Select multiple',
-        'value': '',
-        'source': 'yafowil.widget.dynatree.json',
-        'selectMode': 2,
-    })
+    part1 = factory('fieldset', name='yafowilwidgetdynatree.local')
+    part1['local'] = factory(
+        '#field:dynatree',
+        props={
+            'label': 'Select single value',
+            'value': '',
+            'source': sample_tree,
+        },
+    )
+    part2 = factory('fieldset', name='yafowilwidgetdynatree.remote')
+    part2['remote'] = factory(
+        '#field:dynatree',
+        props={
+            'label': 'Select multiple',
+            'value': '',
+            'source': 'yafowil.widget.dynatree.json',
+            'selectMode': 2,
+        },
+    )
     routes = {
         'yafowil.widget.dynatree.json': json_response,
     }
@@ -136,7 +149,8 @@ def get_example():
             'widget': part1,
             'doc': DOC_LOCAL,
             'title': 'Static Tree',
-        }, {
+        },
+        {
             'widget': part2,
             'routes': routes,
             'doc': DOC_DYNAMIC,
