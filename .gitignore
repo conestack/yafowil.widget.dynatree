@@ -18,7 +18,6 @@
 /htmlcov/
 /node_modules/
 /package-lock.json
-/pnpm-lock.yaml
 /pyvenv.cfg
 /requirements-mxdev.txt
 /sources/

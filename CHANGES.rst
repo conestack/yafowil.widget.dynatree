@@ -4,6 +4,24 @@ Changes
 2.0.1 (unreleased)
 ------------------
 
+- Sync ``resources/widget.js`` with ``js/src/widget.js``.
+  [rnix]
+
+- Extend the JS tests to 100 % coverage, all modules including bundles are
+  loaded by the tests now.
+  [rnix]
+
+- Lint and format the JS code with biome. ``make check`` runs ``biome check``,
+  ``make format`` runs ``biome check --write`` (see ``include.mk``). Behavior
+  unchanged.
+  [rnix]
+
+- JS tooling: Commit ``pnpm-lock.yaml``. Upgrade ``@web/test-runner`` to 1.0
+  and run the JS tests headless in Chromium via Playwright, installed in the JS
+  CI workflow. Pin patched versions of vulnerable transitive dependencies via
+  ``pnpm.overrides``.
+  [rnix]
+
 - Modernise the code ruff flags as outdated: ``u''`` prefixes. Behaviour
   unchanged. ``super(Class, self)`` is kept, see ``cone.app``.
   [rnix]
