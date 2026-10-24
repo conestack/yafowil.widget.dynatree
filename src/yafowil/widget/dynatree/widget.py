@@ -4,7 +4,6 @@ from yafowil.base import factory
 from yafowil.base import fetch_value
 from yafowil.common import generic_extractor
 from yafowil.common import generic_required_extractor
-from yafowil.compat import STR_TYPE
 from yafowil.utils import attr_value
 from yafowil.utils import css_managed_props
 from yafowil.utils import cssid
@@ -24,7 +23,7 @@ parameter_keys = [
 def build_inline_dynatree(tree, selected, tag, ulid=None):
     if tree is None:
         return ''
-    if isinstance(selected, STR_TYPE):
+    if isinstance(selected, str):
         selected = [selected]
     elif not selected:
         selected = []
@@ -67,7 +66,7 @@ def dynatree_renderer(widget, data):
             tag,
             ulid=ulid
         )
-    elif isinstance(source, STR_TYPE):
+    elif isinstance(source, str):
         source_type = 'remote'
         result += tag('div', source,
                       **{'class': 'dynatree-source hiddenStructure'})
