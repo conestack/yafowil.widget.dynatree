@@ -65,5 +65,8 @@ consider_namespace_packages = true
 addopts = ["--import-mode=importlib"]
 pythonpath = "src"
 
+[tool.coverage.run]
+omit = ["*/example.py"]
+
 [tool.zest-releaser]
 create-wheel = true

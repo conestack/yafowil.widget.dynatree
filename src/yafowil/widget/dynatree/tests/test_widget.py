@@ -6,7 +6,6 @@ from yafowil.tests import fxml
 from yafowil.tests import YafowilTestCase
 from yafowil.utils import tag
 from yafowil.widget.dynatree.widget import build_inline_dynatree
-import unittest
 import yafowil.loader  # noqa
 
 
@@ -276,7 +275,3 @@ class TestDynatreeWidget(YafowilTestCase):
             [data.name, data.value, data.extracted, data.errors],
             ['root', UNSET, UNSET, []]
         )
-
-
-if __name__ == '__main__':
-    unittest.main()
