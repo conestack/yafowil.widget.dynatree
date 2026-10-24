@@ -40,7 +40,7 @@ if (typeof window.yafowil === 'undefined') yafowil = {};
                         if (value === 'False') {
                             value = false;
                         }
-                        key = pair[0].replace(/^\s+|\s+$/g, '');
+                        const key = pair[0].replace(/^\s+|\s+$/g, '');
                         if (key === 'type') {
                             sourcetype = value;
                         } else {

@@ -95,6 +95,13 @@ QUnit.module('dynatree', (hooks) => {
         });
     });
 
+    QUnit.test('binder does not leak global variables', (assert) => {
+        create_widget('selectMode,1|type,local');
+        yafowil.dynatree.binder(container);
+        assert.strictEqual(dynatree_calls.length, 1);
+        assert.false(Object.hasOwn(window, 'key'));
+    });
+
     QUnit.test('binder respects context', (assert) => {
         create_widget('selectMode,1|type,local');
         yafowil.dynatree.binder($('<div />'));

@@ -4,6 +4,15 @@ Changes
 2.0.1 (unreleased)
 ------------------
 
+- Fix the widget leaking a global ``key`` variable when binding trees.
+  [rnix]
+
+- Remove the unused rollup bundles ``yafowil.widget.dynatree.js`` and
+  ``yafowil.widget.dynatree.min.js`` including source maps. They were not
+  delivered as resources and threw when loaded. The widget uses
+  ``resources/widget.js``.
+  [rnix]
+
 - Sync ``resources/widget.js`` with ``js/src/widget.js``.
   [rnix]
 
