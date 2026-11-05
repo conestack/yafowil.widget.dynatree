@@ -24,7 +24,7 @@ classifiers = [
     "License :: OSI Approved :: BSD License",
 ]
 dependencies = [
-    "yafowil>3.99",
+    "yafowil>4.1.99",
 ]
 
 [project.optional-dependencies]
