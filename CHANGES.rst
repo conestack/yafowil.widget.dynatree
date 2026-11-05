@@ -1,8 +1,11 @@
 Changes
 =======
 
-2.0.2 (unreleased)
+2.1.0 (unreleased)
 ------------------
+
+- This package is deprecated, there is no replacement.
+  [rnix]
 
 - Encode node titles and the source URL. Requires ``yafowil`` 4.2.0.
   [rnix]

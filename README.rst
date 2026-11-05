@@ -14,6 +14,10 @@
     :target: https://github.com/conestack/yafowil.widget.dynatree/actions/workflows/test_js.yaml
     :alt: Test yafowil.widget.dynatree JS
 
+.. warning::
+
+    This package is deprecated, there is no replacement.
+
 This is a **tree widget** for `YAFOWIL
 <http://pypi.python.org/pypi/yafowil>`_ - Yet Another Form WIdget Library.
 
