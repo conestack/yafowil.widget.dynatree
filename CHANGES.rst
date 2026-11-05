@@ -4,7 +4,8 @@ Changes
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Encode node titles and the source URL. Requires ``yafowil`` 4.2.0.
+  [rnix]
 
 
 2.0.1 (2026-10-31)

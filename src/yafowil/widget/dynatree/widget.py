@@ -35,7 +35,11 @@ def build_inline_dynatree(tree, selected, tag, ulid=None):
         if key in selected:
             attrs['class'] = 'selected'
         li += tag(
-            'li', title, build_inline_dynatree(subtree, selected, tag), '\n', **attrs
+            'li',
+            tag.escape(title),
+            build_inline_dynatree(subtree, selected, tag),
+            '\n',
+            **attrs,
         )
     ul_attrs = dict()
     if ulid is not None:
@@ -64,7 +68,9 @@ def dynatree_renderer(widget, data):
         result += build_inline_dynatree(source, fetch_value(widget, data), tag, ulid=ulid)
     elif isinstance(source, str):
         source_type = 'remote'
-        result += tag('div', source, **{'class': 'dynatree-source hiddenStructure'})
+        result += tag(
+            'div', tag.escape(source), **{'class': 'dynatree-source hiddenStructure'}
+        )
     else:
         raise ValueError('resulting source must be [o]dict or string')
     params = [('%s,%s' % (_, attr_value(_, widget, data))) for _ in parameter_keys]

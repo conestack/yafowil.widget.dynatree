@@ -63,6 +63,23 @@ class TestDynatreeWidget(YafowilTestCase):
             fxml(html),
         )
 
+    def test_inline_tree_encodes_title(self):
+        tree = odict()
+        tree['k'] = ('<b>x</b>&', None)
+        self.assertIn(
+            '<li id="k">&lt;b&gt;x&lt;/b&gt;&amp;', build_inline_dynatree(tree, [], tag)
+        )
+
+    def test_source_string_is_encoded(self):
+        widget = factory(
+            'dynatree', name='root', props={'source': 'http://www.foo.bar/?a=1&b=2'}
+        )
+        self.assertIn(
+            '<div class="dynatree-source hiddenStructure">'
+            'http://www.foo.bar/?a=1&amp;b=2</div>',
+            widget(),
+        )
+
     def test_plain_widget_source_is_string(self):
         # Render plain widget, source is string
         widget = factory(
